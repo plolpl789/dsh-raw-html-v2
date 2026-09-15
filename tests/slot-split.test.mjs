@@ -11,7 +11,7 @@ import path from 'node:path'
 const CLIENT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../lib/client.js')
 const src = readFileSync(CLIENT, 'utf8')
 
-const TARGETS = ['findVcpOpen', 'scanVcpDiv', 'swallowTrailingStyle', 'splitVcpText', 'findPageOpen', 'scanPageEnd', 'scopePageCss', 'splitMermaidFence', 'stripFenceWrapper', 'swallowTrailingRaw']
+const TARGETS = ['findVcpOpen', 'scanVcpDiv', 'swallowTrailingStyle', 'trimTrailingOpenTag', 'splitVcpText', 'findPageOpen', 'scanPageEnd', 'scopePageCss', 'splitMermaidFence', 'stripFenceWrapper', 'swallowTrailingRaw']
 
 /** 从源码提取一个函数定义全文（含签名到配平闭合括号）。跳过字符串/注释/正则字面量。 */
 function extractFn(name) {

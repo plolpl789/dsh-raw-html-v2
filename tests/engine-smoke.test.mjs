@@ -13,7 +13,7 @@ import path from 'node:path'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const require = createRequire(import.meta.url)
-const { JSDOM } = require('G:/AI/AI 助手/VCPChat-main/node_modules/jsdom')
+const { JSDOM } = require('jsdom')
 const dom = new JSDOM('<!doctype html><html><body></body></html>')
 const { window: domWindow, DOMParser, Node } = dom.window
 const React = require(path.resolve(HERE, '../node_modules/react'))
