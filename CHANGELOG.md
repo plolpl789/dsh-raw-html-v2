@@ -1,5 +1,24 @@
 # dsh-raw-html-v2 变更日志
 
+## Unreleased（2026-10-18）· UI：渲染开关与可信模式合并为右下角分割胶囊
+
+### 变更
+
+**渲染按钮从 composer 工具栏移入右下角「可信模式」徽标，合并为一颗左右分半的胶囊（lib/client.js）**
+- 原布局：`</> OFF` 按钮挂在对话框右下角工具栏（composer `[class*="trailing"]`），与页面
+  右下角的「可信模式·开/关」徽标并存，两个并列控件互相争夺注意力；
+- 现布局：右下角 `right:14/bottom:14` 处一颗暗色胶囊（`#vcp-trusted-toggle`），
+  左半 = VCP 渲染开关（`#dsh-raw-html-v2-toggle`，点击打开设置面板），中间 1px 分隔线
+  （`.vcp-dock-divider`），右半 = 可信模式开关（`#vcp-trusted-half`，点击写
+  `localStorage['raw-html-v2.trusted']` 后整页重载）；
+- composer 工具栏不再注入按钮（`createButton`/`ensureButton` 删除）；
+- 左半三态配色：开=薄荷（美学注入中）、纯净渲染=蓝、关=暗；右半开=薄荷、关=暗；
+- 字体统一 JetBrains Maple Mono（`MONO_FONT`，回退 JetBrains Mono → Cascadia Code → monospace）；
+- 面板定位改为在锚点上方展开（`openPanel`：先按 `rect.top - ph - 6` 试算，视口不足时回落
+  下方），修复原版锚点在右下角固定时面板溢出视口底部 16px 的问题；
+- 面板开关与左半按钮状态经 `onChange()` 双向同步（含 `aria-pressed` 与
+  `dsh-raw-html-v2-toggle` CustomEvent）。
+
 ## 0.8.0（2026-10-08）· 响应社区 5 条票据：0.2.x 兼容 + 流式双渲染修复 + 仓库门面清理
 
 > 本版集中处理仓库 open 的 4 条 issue + 1 条 PR（#1–#5），逐条在本地定位复现后修复并回归。
