@@ -1,6 +1,6 @@
 {
   "name": "dsh-raw-html-v2",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "VCP 视觉通感协议插件 v2（官方 Slot API 版）：AI 正文直接输出裸 HTML，前端以 conversation.chat.node 的 assistant-step 替换渲染器接入 + 复用 v1 渲染引擎（assets/vendor/vcp-engine-v1.js，流式/字体锁权/作用域化/KaTeX·Mermaid 零重写）渲染 vcp-root 卡片，零 bundle 补丁，兼容 rc 与 alpha 全版本线；内置 IO 热窗（可视+预取渲染、远离降级占位）防历史卡累积卡顿；内置开源精选字体 + 设计规范注入",
   "keywords": [
     "deepseek",
@@ -33,6 +33,7 @@
     "FRAMING.md",
     "EDITORIAL.md",
     "BREATH.md",
+    "CONTENT.md",
     "styles",
     "tests"
   ],
